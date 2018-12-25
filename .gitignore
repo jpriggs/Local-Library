@@ -62,3 +62,10 @@ typings/
 
 # Ignore node modules
 *node_modules/*
+
+# Ignore Visual Studio Files
+*.vs/*
+
+# Ignore VS Node Tools and Objects
+*bin/*
+*obj*
