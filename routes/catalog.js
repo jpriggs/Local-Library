@@ -34,7 +34,7 @@ router.post('/book/:id/update', book_controller.book_update_post);
 
 
 //GET request for one Book
-router.get('/book/:id', book_controller.book_list);
+router.get('/book/:id', book_controller.book_detail);
 
 //GET request for list of all Book items
 router.get('/books', book_controller.book_list);
