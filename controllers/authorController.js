@@ -45,14 +45,12 @@ exports.author_detail = function (req, res, next) {
 };
 
 //Display Author create form on GET
-exports.author_create_get = function (req, res) {
-    //res.send('NOT IMPLEMENTED: Author create GET');
+exports.author_create_get = function (req, res, next) {
     res.render('author_form', { title: 'Create Author' });
 };
 
 //Handle Author create on POST
 exports.author_create_post = [
-    //res.send('NOT IMPLEMENTED: Author create POST');
 
     //Validate Fields
     body('first_name').isLength({ min: 1 }).trim().withMessage('First name must be specified.')
@@ -65,8 +63,8 @@ exports.author_create_post = [
     //Sanitize fields
     sanitizeBody('first_name').trim().escape(),
     sanitizeBody('family_name').trim().escape(),
-    sanitizeBody('date_of_birth').trim().escape(),
-    sanitizeBody('date_of_death').trim().escape(),
+    sanitizeBody('date_of_birth').toDate(),
+    sanitizeBody('date_of_death').toDate(),
 
     //Process request after validation
     (req, res, next) => {
